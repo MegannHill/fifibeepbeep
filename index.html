@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Megann's Voice Studio</title>
+  <meta name="description" content="Voice lessons, audition coaching, and musical theatre training with Megann's Voice Studio." />
+
+  <style>
+    :root {
+      --cream: #fff8ef;
+      --blush: #f5d7d7;
+      --rose: #c86f7f;
+      --plum: #4b2e4f;
+      --gold: #d6a94f;
+      --ink: #2c2330;
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(44, 35, 48, 0.12);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 248, 239, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(75, 46, 79, 0.12);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--plum);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 86px 24px 64px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      color: var(--rose);
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 0.98;
+      color: var(--plum);
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.22rem;
+      max-width: 620px;
+      margin-bottom: 30px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .button.primary {
+      background: var(--plum);
+      color: var(--white);
+    }
+
+    .button.secondary {
+      border: 2px solid var(--plum);
+      color: var(--plum);
+      background: transparent;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, var(--blush), #fff2df);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "♪";
+      position: absolute;
+      right: 28px;
+      bottom: -34px;
+      font-size: 12rem;
+      color: rgba(75, 46, 79, 0.12);
+      line-height: 1;
+    }
+
+    .hero-card h2 {
+      color: var(--plum);
+      font-size: 2rem;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card p,
+    .hero-card ul {
+      position: relative;
+      z-index: 1;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-card li::before {
+      content: "★";
+      color: var(--gold);
+      margin-right: 8px;
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 64px 24px;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--plum);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      font-size: 1.1rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(75, 46, 79, 0.08);
+    }
+
+    .card h3 {
+      color: var(--plum);
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .card li {
+      font-family: Arial, sans-serif;
+      font-size: 0.98rem;
+    }
+
+    .card ul {
+      margin-left: 20px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .portrait-placeholder {
+      min-height: 420px;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(214, 169, 79, 0.32), transparent 34%),
+        linear-gradient(145deg, var(--plum), var(--rose));
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: end;
+      padding: 28px;
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .quote-band {
+      background: var(--plum);
+      color: var(--white);
+      max-width: none;
+      margin-top: 40px;
+      padding: 54px 24px;
+    }
+
+    .quote-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .quote-inner p {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .quote-inner span {
+      font-family: Arial, sans-serif;
+      color: var(--blush);
+    }
+
+    .contact {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      font-family: Arial, sans-serif;
+    }
+
+    label {
+      font-weight: bold;
+      color: var(--plum);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid rgba(75, 46, 79, 0.25);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+      background: var(--cream);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 32px 24px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: rgba(44, 35, 48, 0.72);
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .about,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="logo" href="#top">Megann's Voice Studio</a>
+      <div class="nav-links">
+        <a href="#lessons">Lessons</a>
+        <a href="#about">About</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Voice lessons · Audition coaching · Musical theatre</p>
+        <h1>Confident singing for expressive performers.</h1>
+        <p>
+          Supportive, practical voice coaching for students who want to sing with more freedom,
+          build healthy technique, and walk into auditions feeling prepared.
+        </p>
+        <div class="button-row">
+          <a class="button primary" href="#contact">Book a Lesson</a>
+          <a class="button secondary" href="#lessons">Explore Lessons</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Studio highlights">
+        <div>
+          <h2>Sing with skill, heart, and story.</h2>
+          <p>Lessons blend vocal technique, musicality, acting choices, and audition strategy.</p>
+        </div>
+        <ul>
+          <li>Musical theatre audition prep</li>
+          <li>Healthy belt and mix work</li>
+          <li>Song interpretation and storytelling</li>
+          <li>Ear training and musicianship</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="lessons">
+      <div class="section-heading">
+        <p class="eyebrow">What I offer</p>
+        <h2>Lessons for growing performers.</h2>
+        <p>
+          Whether you are preparing for a school musical, building your book, or learning how your voice works,
+          lessons are designed around your goals and your current stage of development.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Voice Lessons</h3>
+          <p>
+            Build vocal confidence through breath, resonance, registration, range, agility, and healthy tone production.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Audition Coaching</h3>
+          <p>
+            Choose strong audition cuts, clarify character choices, prepare accompaniment tracks, and practice the full room-entry experience.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Musical Theatre Coaching</h3>
+          <p>
+            Connect technique to storytelling so songs feel specific, expressive, and performance-ready.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="portrait-placeholder">
+        Add photo here
+      </div>
+
+      <div>
+        <p class="eyebrow">Meet Megann</p>
+        <h2>Teacher, theatre lifer, and joyful voice nerd.</h2>
+        <p>
+          Hi, I’m Megann. My work centers on helping singers understand their voices, trust their instincts,
+          and bring more truth and specificity to the music they perform.
+        </p>
+        <p>
+          I especially love working with musical theatre performers, young singers, and students preparing for auditions.
+          My lessons are warm, direct, creative, and tailored to the person in front of me.
+        </p>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="section-heading">
+        <p class="eyebrow">Studio approach</p>
+        <h2>Technique that supports the story.</h2>
+        <p>
+          The goal is not just to sound good. The goal is to understand what your voice can do, make brave choices,
+          and communicate with clarity.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Healthy Technique</h3>
+          <ul>
+            <li>Breath coordination</li>
+            <li>Registration and passaggio work</li>
+            <li>Belt, mix, and legit style</li>
+            <li>Warmups tailored to each singer</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Musicianship</h3>
+          <ul>
+            <li>Interval ear training</li>
+            <li>Rhythm and phrasing</li>
+            <li>Memorization strategies</li>
+            <li>Working with accompaniment tracks</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Performance</h3>
+          <ul>
+            <li>Character-driven choices</li>
+            <li>Text and lyric work</li>
+            <li>Audition confidence</li>
+            <li>Specific, repeatable performance beats</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-band" aria-label="Studio philosophy">
+      <div class="quote-inner">
+        <p>“Your voice is not a problem to fix. It is an instrument to understand.”</p>
+        <span>Megann's Voice Studio</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-heading">
+        <p class="eyebrow">Get started</p>
+        <h2>Ready to book a lesson?</h2>
+        <p>
+          Use this section for your studio contact form, lesson policies, location, availability, and pricing details.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div>
+          <h3>Lesson Inquiry</h3>
+          <p>
+            Replace the form action with your own form service, or change the button to a direct email link.
+          </p>
+          <p><strong>Email:</strong> your-email@example.com</p>
+          <p><strong>Location:</strong> Ferndale / Bellingham area or online</p>
+          <p><strong>Lesson length:</strong> 30, 45, or 60 minutes</p>
+        </div>
+
+        <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Student or parent name" />
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" />
+          </div>
+
+          <div>
+            <label for="lesson-type">Lesson focus</label>
+            <select id="lesson-type" name="lesson-type">
+              <option>Voice lessons</option>
+              <option>Audition coaching</option>
+              <option>Musical theatre performance</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me what you're working on or what you'd like help with."></textarea>
+          </div>
+
+          <button class="button primary" type="submit">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Megann's Voice Studio. All rights reserved.</p>
+  </footer>
+</body>
+</html>
