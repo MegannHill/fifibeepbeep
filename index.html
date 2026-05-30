@@ -272,22 +272,17 @@
       align-items: center;
     }
 
-    .portrait-placeholder {
-      min-height: 420px;
-      border-radius: var(--radius);
-      background:
-        radial-gradient(circle at 30% 20%, rgba(252, 202, 89, 0.65), transparent 34%),
-        linear-gradient(145deg, var(--plum), var(--rose));
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: end;
-      padding: 28px;
-      color: var(--white);
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 4px solid var(--white);
-    }
+ .portrait-photo {
+  width: 100%;
+  min-height: 420px;
+  height: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 4px solid var(--white);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
     .quote-band {
       background: var(--plum);
@@ -536,8 +531,7 @@
     </section>
 
     <section id="about" class="about">
-      <div class="portrait-placeholder">
-        Add photo here
+      <div <img class="portrait-photo" src="megannheadshot.jpg" alt="Megann Hill">
       </div>
 
       <div>
